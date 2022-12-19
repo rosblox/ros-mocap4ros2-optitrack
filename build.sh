@@ -1,0 +1,1 @@
+docker build --progress=plain -t ghcr.io/rosblox/ros-mocap4ros2-optitrack:humble .
