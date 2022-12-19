@@ -22,6 +22,7 @@ COPY ./mocap4ros2_optitrack src/mocap4ros2_optitrack
 WORKDIR /colcon_ws/src/mocap4ros2_optitrack/mocap_optitrack_driver
 RUN pip3 install requests && python3 ./install_sdk.py
 
+WORKDIR /colcon_ws
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon build --symlink-install --event-handlers console_direct+ --cmake-args ' -DCMAKE_BUILD_TYPE=Release'
