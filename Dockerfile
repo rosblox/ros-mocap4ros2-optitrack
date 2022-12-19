@@ -1,23 +1,24 @@
-FROM --platform=arm64 dustynv/ros:humble-ros-base-l4t-r35.1.0
+FROM ros:humble-ros-core
 
-RUN cd /tmp && \
-    apt update && apt install -y --no-install-recommends \
-    xxx \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3-colcon-common-extensions \
+    ros-humble-tf2-ros \
+    ros-humble-tf2-geometry-msgs \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /colcon_ws/src
+
+COPY ./mocap_msgs src/mocap_msgs
+COPY ./mocap src/mocap
+COPY ./mocap4ros2_optitrack src/mocap4ros2_optitrack
 
 WORKDIR /colcon_ws
 
+# RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+#     colcon build --symlink-install --event-handlers console_direct+ --cmake-args ' -DCMAKE_BUILD_TYPE=Release'
 
-COPY ./zed-ros2-wrapper src/zed-ros2-wrapper
-
-
-
-
-RUN . /opt/ros/${ROS_DISTRO}/install/setup.sh && \
-    colcon build --symlink-install --event-handlers console_direct+ --base-paths src --cmake-args ' -DCMAKE_BUILD_TYPE=Release'
-
-WORKDIR /
+# WORKDIR /
 
 COPY ros_entrypoint.sh .
 

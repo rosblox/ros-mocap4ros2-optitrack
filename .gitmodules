@@ -1,0 +1,9 @@
+[submodule "mocap4ros2_optitrack"]
+	path = mocap4ros2_optitrack
+	url = https://github.com/rosblox/mocap4ros2_optitrack.git
+[submodule "mocap"]
+	path = mocap
+	url = https://github.com/rosblox/mocap.git
+[submodule "mocap_msgs"]
+	path = mocap_msgs
+	url = https://github.com/rosblox/mocap_msgs.git
