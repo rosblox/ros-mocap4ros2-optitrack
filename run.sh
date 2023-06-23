@@ -1,4 +1,4 @@
-docker run -it --privileged --rm --net=host \
+docker run -it --rm --network=bridge \
 --workdir=/colcon_ws \
 --volume $(pwd)/mocap:/colcon_ws/src/mocap \
 --volume $(pwd)/mocap_msgs:/colcon_ws/src/mocap_msgs \
