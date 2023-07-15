@@ -32,5 +32,4 @@ WORKDIR /
 COPY ros_entrypoint.sh .
 
 RUN echo 'alias build="colcon build --symlink-install  --event-handlers console_direct+"' >> /etc/bash.bashrc
-RUN echo 'source /colcon_ws/install/setup.bash; ros2 launch mocap_optitrack_driver optitrack2.launch.py' >> /run.sh && chmod +x /run.sh
-RUN echo 'alias run="su - ros /run.sh"' >> /etc/bash.bashrc
+RUN echo 'alias run="su - ros -P -c \"source /colcon_ws/install/setup.bash; ros2 launch mocap_optitrack_driver optitrack2.launch.py\""' >> /etc/bash.bashrc
