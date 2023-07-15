@@ -7,4 +7,4 @@ docker run -it --rm --network=host \
 --mount type=tmpfs,destination=/.ros,tmpfs-mode=0777 \
 --env UID=$(id -u) \
 --env GID=$(id -g) \
-ghcr.io/rosblox/ros-mocap4ros2-optitrack:humble /bin/bash
+ghcr.io/rosblox/ros-mocap4ros2-optitrack:humble
